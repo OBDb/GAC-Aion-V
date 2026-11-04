@@ -1,4 +1,3444 @@
-{ "commands": [
-
-]
+{
+  "ecu": [
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "type": "battery"
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "type": "vehicleControl"
+    },
+    {
+      "hdr": "7E4",
+      "rax": "7EC",
+      "type": "motor"
+    },
+    {
+      "hdr": "720",
+      "rax": "7A0",
+      "type": "bodyControl"
+    }
+  ],
+  "commands": [
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1000"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_BMS_SUPPLY_V",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 25.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "BMS 12 V supply voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1000. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions vehicle. Supply bus voltage; not a standalone 12 V battery health test."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1002"
+      },
+      "freq": 60,
+      "signals": [
+        {
+          "id": "AIONV_SOH",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 655.35,
+            "unit": "percent",
+            "div": 100
+          },
+          "name": "Battery state of health (community mapping)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1002. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the other versions. Source observed a constant 100%; scaling across degraded packs still needs independent validation.",
+          "suggestedMetric": "stateOfHealth"
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "111A"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_SOC",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 65535.0,
+            "unit": "percent"
+          },
+          "name": "Battery state of charge (dashboard)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-111A. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated other versions of the vehicle.",
+          "suggestedMetric": "stateOfCharge"
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1401"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_PACK_V",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 6553.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "Battery pack voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1401. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle.",
+          "suggestedMetric": "tractionBatteryVoltage"
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1105"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_PACK_V_COPY",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 6553.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "Battery pack voltage (copy)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1105. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1106"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CELL_SUM_V",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 6553.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "Sum of cell voltages",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1106. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1101"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CELL_MAX_INDEX",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 255.0,
+            "unit": "scalar"
+          },
+          "name": "Highest-voltage cell reported index",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1101. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle. Raw index preserved; zero-based versus one-based numbering is not normalized."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1103"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CELL_MIN_INDEX",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 255.0,
+            "unit": "scalar"
+          },
+          "name": "Lowest-voltage cell reported index",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1103. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle. Raw index preserved; zero-based versus one-based numbering is not normalized."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1115"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_TEMP_MAX_INDEX",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 255.0,
+            "unit": "scalar"
+          },
+          "name": "Hottest battery sensor reported index",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1115. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle vehicle. Raw index preserved; zero-based versus one-based numbering is not normalized."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1116"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_TEMP_MIN_INDEX",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 255.0,
+            "unit": "scalar"
+          },
+          "name": "Coolest battery sensor reported index",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1116. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the on other versions of the vehicle. Raw index preserved; zero-based versus one-based numbering is not normalized."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1184"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CONTROLLER_MAX_INDEX",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 255.0,
+            "unit": "scalar"
+          },
+          "name": "Hottest battery controller reported index",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1184. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle. Raw index preserved; zero-based versus one-based numbering is not normalized."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1114"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CELL_CHARGE_AVG",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 255.0,
+            "unit": "percent"
+          },
+          "name": "Average cell charge (source label)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1114. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle. Do not substitute for dashboard SOC."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "141E"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_SOC_COPY",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 65535.0,
+            "unit": "percent"
+          },
+          "name": "Battery state of charge (copy)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-141E. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1136"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_CC2_V",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 25.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "Charging plug detection voltage (CC2)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1136. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "114D"
+      },
+      "freq": 30,
+      "signals": [
+        {
+          "id": "AIONV_ENERGY_IN",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 24,
+            "blsb": false,
+            "min": 0,
+            "max": 1677721.5,
+            "unit": "kilowattHours",
+            "div": 10
+          },
+          "name": "Lifetime battery energy charged",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-114D. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehiclee."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1189"
+      },
+      "freq": 30,
+      "signals": [
+        {
+          "id": "AIONV_ENERGY_OUT",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 24,
+            "blsb": false,
+            "min": 0,
+            "max": 1677721.5,
+            "unit": "kilowattHours",
+            "div": 10
+          },
+          "name": "Lifetime battery energy discharged",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1189. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "2020"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CELL_MAX_MV",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Highest cell voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-2020. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "2022"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CELL_MIN_MV",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Lowest cell voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-2022. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "2023"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_CELL_AVG_MV",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Average cell voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-2023. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "2024"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_BAT_TEMP_MAX",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Highest battery temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-2024. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "2026"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_BAT_TEMP_MIN",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Lowest battery temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-2026. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1181"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_CONTROLLER_TEMP_MAX",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Highest battery controller temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1181. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1182"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_CONTROLLER_TEMP_MIN",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Lowest battery controller temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1182. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1183"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_CONTROLLER_TEMP_AVG",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Average battery controller temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1183. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehiclevehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1151"
+      },
+      "freq": 30,
+      "signals": [
+        {
+          "id": "AIONV_CELL_001",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 1",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_002",
+          "path": "Battery",
+          "fmt": {
+            "bix": 16,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 2",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_003",
+          "path": "Battery",
+          "fmt": {
+            "bix": 32,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 3",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on other versions of the vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_004",
+          "path": "Battery",
+          "fmt": {
+            "bix": 48,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 4",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_005",
+          "path": "Battery",
+          "fmt": {
+            "bix": 64,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 5",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_006",
+          "path": "Battery",
+          "fmt": {
+            "bix": 80,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 6",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_007",
+          "path": "Battery",
+          "fmt": {
+            "bix": 96,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 7",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_008",
+          "path": "Battery",
+          "fmt": {
+            "bix": 112,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 8",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_009",
+          "path": "Battery",
+          "fmt": {
+            "bix": 128,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 9",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_010",
+          "path": "Battery",
+          "fmt": {
+            "bix": 144,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 10",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_011",
+          "path": "Battery",
+          "fmt": {
+            "bix": 160,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 11",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_012",
+          "path": "Battery",
+          "fmt": {
+            "bix": 176,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 12",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_013",
+          "path": "Battery",
+          "fmt": {
+            "bix": 192,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 13",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_014",
+          "path": "Battery",
+          "fmt": {
+            "bix": 208,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 14",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_015",
+          "path": "Battery",
+          "fmt": {
+            "bix": 224,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 15",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_016",
+          "path": "Battery",
+          "fmt": {
+            "bix": 240,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 16",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_017",
+          "path": "Battery",
+          "fmt": {
+            "bix": 256,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 17",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_018",
+          "path": "Battery",
+          "fmt": {
+            "bix": 272,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 18",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_019",
+          "path": "Battery",
+          "fmt": {
+            "bix": 288,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 19",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_020",
+          "path": "Battery",
+          "fmt": {
+            "bix": 304,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 20",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_021",
+          "path": "Battery",
+          "fmt": {
+            "bix": 320,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 21",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_022",
+          "path": "Battery",
+          "fmt": {
+            "bix": 336,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 22",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_023",
+          "path": "Battery",
+          "fmt": {
+            "bix": 352,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 23",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_024",
+          "path": "Battery",
+          "fmt": {
+            "bix": 368,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 24",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_025",
+          "path": "Battery",
+          "fmt": {
+            "bix": 384,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 25",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_026",
+          "path": "Battery",
+          "fmt": {
+            "bix": 400,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 26",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_027",
+          "path": "Battery",
+          "fmt": {
+            "bix": 416,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 27",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_028",
+          "path": "Battery",
+          "fmt": {
+            "bix": 432,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 28",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_029",
+          "path": "Battery",
+          "fmt": {
+            "bix": 448,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 29",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_030",
+          "path": "Battery",
+          "fmt": {
+            "bix": 464,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 30",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_031",
+          "path": "Battery",
+          "fmt": {
+            "bix": 480,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 31",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_032",
+          "path": "Battery",
+          "fmt": {
+            "bix": 496,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 32",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_033",
+          "path": "Battery",
+          "fmt": {
+            "bix": 512,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 33",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_034",
+          "path": "Battery",
+          "fmt": {
+            "bix": 528,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 34",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_035",
+          "path": "Battery",
+          "fmt": {
+            "bix": 544,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 35",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_036",
+          "path": "Battery",
+          "fmt": {
+            "bix": 560,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 36",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_037",
+          "path": "Battery",
+          "fmt": {
+            "bix": 576,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 37",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_038",
+          "path": "Battery",
+          "fmt": {
+            "bix": 592,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 38",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_039",
+          "path": "Battery",
+          "fmt": {
+            "bix": 608,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 39",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_040",
+          "path": "Battery",
+          "fmt": {
+            "bix": 624,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 40",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_041",
+          "path": "Battery",
+          "fmt": {
+            "bix": 640,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 41",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_042",
+          "path": "Battery",
+          "fmt": {
+            "bix": 656,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 42",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_043",
+          "path": "Battery",
+          "fmt": {
+            "bix": 672,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 43",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_044",
+          "path": "Battery",
+          "fmt": {
+            "bix": 688,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 44",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_045",
+          "path": "Battery",
+          "fmt": {
+            "bix": 704,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 45",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_046",
+          "path": "Battery",
+          "fmt": {
+            "bix": 720,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 46",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_047",
+          "path": "Battery",
+          "fmt": {
+            "bix": 736,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 47",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_048",
+          "path": "Battery",
+          "fmt": {
+            "bix": 752,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 48",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_049",
+          "path": "Battery",
+          "fmt": {
+            "bix": 768,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 49",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_050",
+          "path": "Battery",
+          "fmt": {
+            "bix": 784,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 50",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_051",
+          "path": "Battery",
+          "fmt": {
+            "bix": 800,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 51",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_052",
+          "path": "Battery",
+          "fmt": {
+            "bix": 816,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 52",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_053",
+          "path": "Battery",
+          "fmt": {
+            "bix": 832,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 53",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_054",
+          "path": "Battery",
+          "fmt": {
+            "bix": 848,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 54",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_055",
+          "path": "Battery",
+          "fmt": {
+            "bix": 864,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 55",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_056",
+          "path": "Battery",
+          "fmt": {
+            "bix": 880,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 56",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_057",
+          "path": "Battery",
+          "fmt": {
+            "bix": 896,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 57",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_058",
+          "path": "Battery",
+          "fmt": {
+            "bix": 912,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 58",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_059",
+          "path": "Battery",
+          "fmt": {
+            "bix": 928,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 59",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_060",
+          "path": "Battery",
+          "fmt": {
+            "bix": 944,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 60",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_061",
+          "path": "Battery",
+          "fmt": {
+            "bix": 960,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 61",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_062",
+          "path": "Battery",
+          "fmt": {
+            "bix": 976,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 62",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_063",
+          "path": "Battery",
+          "fmt": {
+            "bix": 992,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 63",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_064",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1008,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 64",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_065",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1024,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 65",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_066",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1040,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 66",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_067",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1056,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 67",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_068",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1072,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 68",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_069",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1088,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 69",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_070",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1104,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 70",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_071",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1120,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 71",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_072",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1136,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 72",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_073",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1152,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 73",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_074",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1168,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 74",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_075",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1184,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 75",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_076",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1200,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 76",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_077",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1216,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 77",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_078",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1232,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 78",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_079",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1248,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 79",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_080",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1264,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 80",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_081",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1280,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 81",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_082",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1296,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 82",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_083",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1312,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 83",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_084",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1328,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 84",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_085",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1344,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 85",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_086",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1360,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 86",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_087",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1376,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 87",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_088",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1392,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 88",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_089",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1408,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 89",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_090",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1424,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 90",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_091",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1440,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 91",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_092",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1456,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 92",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_093",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1472,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 93",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_094",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1488,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 94",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_095",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1504,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 95",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_096",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1520,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 96",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_097",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1536,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 97",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_098",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1552,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 98",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_099",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1568,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 99",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_100",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1584,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 100",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_101",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1600,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 101",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_102",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1616,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 102",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_103",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1632,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 103",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_104",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1648,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 104",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_105",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1664,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 105",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_106",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1680,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 106",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_107",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1696,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 107",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_108",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1712,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 108",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_109",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1728,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 109",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_110",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1744,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 110",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_111",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1760,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 111",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CELL_112",
+          "path": "Battery",
+          "fmt": {
+            "bix": 1776,
+            "len": 16,
+            "blsb": false,
+            "min": -5000,
+            "max": 60535.0,
+            "unit": "millivolts",
+            "add": -5000
+          },
+          "name": "Cell voltage slot 112",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1151. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 300 bytes; 112 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        }
+      ],
+      "fcm1": true
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1150"
+      },
+      "freq": 30,
+      "signals": [
+        {
+          "id": "AIONV_TEMP_SENSOR_001",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 1",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_002",
+          "path": "Battery",
+          "fmt": {
+            "bix": 8,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 2",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_003",
+          "path": "Battery",
+          "fmt": {
+            "bix": 16,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 3",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_004",
+          "path": "Battery",
+          "fmt": {
+            "bix": 24,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 4",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_005",
+          "path": "Battery",
+          "fmt": {
+            "bix": 32,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 5",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_006",
+          "path": "Battery",
+          "fmt": {
+            "bix": 40,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 6",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_007",
+          "path": "Battery",
+          "fmt": {
+            "bix": 48,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 7",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_008",
+          "path": "Battery",
+          "fmt": {
+            "bix": 56,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 8",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_009",
+          "path": "Battery",
+          "fmt": {
+            "bix": 64,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 9",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_010",
+          "path": "Battery",
+          "fmt": {
+            "bix": 72,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 10",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_011",
+          "path": "Battery",
+          "fmt": {
+            "bix": 80,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 11",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_012",
+          "path": "Battery",
+          "fmt": {
+            "bix": 88,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 12",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_013",
+          "path": "Battery",
+          "fmt": {
+            "bix": 96,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 13",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_014",
+          "path": "Battery",
+          "fmt": {
+            "bix": 104,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 14",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_015",
+          "path": "Battery",
+          "fmt": {
+            "bix": 112,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 15",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_016",
+          "path": "Battery",
+          "fmt": {
+            "bix": 120,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 16",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_017",
+          "path": "Battery",
+          "fmt": {
+            "bix": 128,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 17",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_018",
+          "path": "Battery",
+          "fmt": {
+            "bix": 136,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 18",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_019",
+          "path": "Battery",
+          "fmt": {
+            "bix": 144,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 19",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_020",
+          "path": "Battery",
+          "fmt": {
+            "bix": 152,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 20",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_021",
+          "path": "Battery",
+          "fmt": {
+            "bix": 160,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 21",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_022",
+          "path": "Battery",
+          "fmt": {
+            "bix": 168,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 22",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_023",
+          "path": "Battery",
+          "fmt": {
+            "bix": 176,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 23",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_TEMP_SENSOR_024",
+          "path": "Battery",
+          "fmt": {
+            "bix": 184,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery temperature slot 24",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1150. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 54 bytes; 24 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        }
+      ],
+      "fcm1": true
+    },
+    {
+      "hdr": "7E2",
+      "rax": "7EA",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1180"
+      },
+      "freq": 30,
+      "signals": [
+        {
+          "id": "AIONV_CONTROLLER_TEMP_001",
+          "path": "Battery",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 1",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_002",
+          "path": "Battery",
+          "fmt": {
+            "bix": 8,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 2",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_003",
+          "path": "Battery",
+          "fmt": {
+            "bix": 16,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 3",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_004",
+          "path": "Battery",
+          "fmt": {
+            "bix": 24,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 4",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_005",
+          "path": "Battery",
+          "fmt": {
+            "bix": 32,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 5",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_006",
+          "path": "Battery",
+          "fmt": {
+            "bix": 40,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 6",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_007",
+          "path": "Battery",
+          "fmt": {
+            "bix": 48,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 7",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_008",
+          "path": "Battery",
+          "fmt": {
+            "bix": 56,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 8",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_009",
+          "path": "Battery",
+          "fmt": {
+            "bix": 64,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 9",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_010",
+          "path": "Battery",
+          "fmt": {
+            "bix": 72,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 10",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_011",
+          "path": "Battery",
+          "fmt": {
+            "bix": 80,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 11",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_012",
+          "path": "Battery",
+          "fmt": {
+            "bix": 88,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 12",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_013",
+          "path": "Battery",
+          "fmt": {
+            "bix": 96,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 13",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_014",
+          "path": "Battery",
+          "fmt": {
+            "bix": 104,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 14",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_015",
+          "path": "Battery",
+          "fmt": {
+            "bix": 112,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 15",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        },
+        {
+          "id": "AIONV_CONTROLLER_TEMP_016",
+          "path": "Battery",
+          "fmt": {
+            "bix": 120,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Battery controller temperature slot 16",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E2-1180. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source response: 32 bytes; 16 populated slots observed. Slot labels are 1-based display positions, not verified physical locations. Counts may differ by battery variant; later padded slots intentionally omitted."
+        }
+      ],
+      "fcm1": true
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1477"
+      },
+      "freq": 1,
+      "signals": [
+        {
+          "id": "AIONV_WHEEL_SPEED_1",
+          "path": "Movement",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 327.675,
+            "unit": "kilometersPerHour",
+            "div": 200
+          },
+          "name": "Wheel speed channel 1",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-1477. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source wheel positions are assumed, not confirmed. Neutral channel naming avoids assigning an unverified wheel position."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1478"
+      },
+      "freq": 1,
+      "signals": [
+        {
+          "id": "AIONV_WHEEL_SPEED_2",
+          "path": "Movement",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 327.675,
+            "unit": "kilometersPerHour",
+            "div": 200
+          },
+          "name": "Wheel speed channel 2",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-1478. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source wheel positions are assumed, not confirmed. Neutral channel naming avoids assigning an unverified wheel position."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1479"
+      },
+      "freq": 1,
+      "signals": [
+        {
+          "id": "AIONV_WHEEL_SPEED_3",
+          "path": "Movement",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 327.675,
+            "unit": "kilometersPerHour",
+            "div": 200
+          },
+          "name": "Wheel speed channel 3",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-1479. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source wheel positions are assumed, not confirmed. Neutral channel naming avoids assigning an unverified wheel position."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "147A"
+      },
+      "freq": 1,
+      "signals": [
+        {
+          "id": "AIONV_WHEEL_SPEED_4",
+          "path": "Movement",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 327.675,
+            "unit": "kilometersPerHour",
+            "div": 200
+          },
+          "name": "Wheel speed channel 4",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-147A. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Source wheel positions are assumed, not confirmed. Neutral channel naming avoids assigning an unverified wheel position."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1442"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_VCU_PACK_V",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 6553.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "Battery pack voltage (VCU)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-1442. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "144D"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_MOTOR_TEMP_1",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": -40,
+            "max": 65495.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Drive motor temperature 1",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-144D. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "144E"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_MOTOR_TEMP_2",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": -40,
+            "max": 65495.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Drive motor temperature 2",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-144E. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "146B"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_VCU_SOC",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 127.5,
+            "unit": "percent",
+            "div": 2
+          },
+          "name": "Battery state of charge (VCU)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-146B. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E3",
+      "rax": "7EB",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1000"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_VCU_SUPPLY_V",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 25.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "VCU 12 V supply voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E3-1000. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E4",
+      "rax": "7EC",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1000"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_MOTOR_SUPPLY_V",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 25.5,
+            "unit": "volts",
+            "div": 10
+          },
+          "name": "Motor controller 12 V supply voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E4-1000. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E4",
+      "rax": "7EC",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1100"
+      },
+      "freq": 5,
+      "signals": [
+        {
+          "id": "AIONV_INVERTER_V",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 16,
+            "blsb": false,
+            "min": 0,
+            "max": 65535.0,
+            "unit": "volts"
+          },
+          "name": "Inverter DC bus voltage",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E4-1100. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "7E4",
+      "rax": "7EC",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "1104"
+      },
+      "freq": 10,
+      "signals": [
+        {
+          "id": "AIONV_MOTOR_TEMP_COPY",
+          "path": "Drivetrain",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": -40,
+            "max": 215.0,
+            "unit": "celsius",
+            "add": -40
+          },
+          "name": "Motor / inverter temperature (copy)",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-7E4-1104. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle."
+        }
+      ]
+    },
+    {
+      "hdr": "720",
+      "rax": "7A0",
+      "proto": "15765-4-11bit",
+      "dbg": true,
+      "cmd": {
+        "22": "11FF"
+      },
+      "freq": 10,
+      "fcm1": true,
+      "signals": [
+        {
+          "id": "AIONV_TIRE_1_PRESSURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 0,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 51.0,
+            "unit": "psi",
+            "div": 5
+          },
+          "name": "Tire channel 1 pressure",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        },
+        {
+          "id": "AIONV_TIRE_1_TEMPERATURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 8,
+            "len": 8,
+            "blsb": false,
+            "min": -50,
+            "max": 205.0,
+            "unit": "celsius",
+            "add": -50
+          },
+          "name": "Tire channel 1 temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        },
+        {
+          "id": "AIONV_TIRE_2_PRESSURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 16,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 51.0,
+            "unit": "psi",
+            "div": 5
+          },
+          "name": "Tire channel 2 pressure",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        },
+        {
+          "id": "AIONV_TIRE_2_TEMPERATURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 24,
+            "len": 8,
+            "blsb": false,
+            "min": -50,
+            "max": 205.0,
+            "unit": "celsius",
+            "add": -50
+          },
+          "name": "Tire channel 2 temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        },
+        {
+          "id": "AIONV_TIRE_3_PRESSURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 32,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 51.0,
+            "unit": "psi",
+            "div": 5
+          },
+          "name": "Tire channel 3 pressure",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        },
+        {
+          "id": "AIONV_TIRE_3_TEMPERATURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 40,
+            "len": 8,
+            "blsb": false,
+            "min": -50,
+            "max": 205.0,
+            "unit": "celsius",
+            "add": -50
+          },
+          "name": "Tire channel 3 temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        },
+        {
+          "id": "AIONV_TIRE_4_PRESSURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 48,
+            "len": 8,
+            "blsb": false,
+            "min": 0,
+            "max": 51.0,
+            "unit": "psi",
+            "div": 5
+          },
+          "name": "Tire channel 4 pressure",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        },
+        {
+          "id": "AIONV_TIRE_4_TEMPERATURE",
+          "path": "Tires",
+          "fmt": {
+            "bix": 56,
+            "len": 8,
+            "blsb": false,
+            "min": -50,
+            "max": 205.0,
+            "unit": "celsius",
+            "add": -50
+          },
+          "name": "Tire channel 4 temperature",
+          "description": "Source: https://www.aionv.app/pages/OBD-ITEMS.html#i-720-11FF. Community decoding from a second-generation Aion V in Sri Lanka; not an official GAC PID specification. Not yet validated on the Brazilian vehicle. Four consecutive (pressure, temperature) byte pairs. Physical wheel positions are not confirmed, so channels are not assigned to front/rear or left/right. Source reports updates only while driving; stationary readings may be stale."
+        }
+      ]
+    }
+  ]
 }
