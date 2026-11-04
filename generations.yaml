@@ -1,0 +1,9 @@
+references:
+  - "https://en.wikipedia.org/wiki/Aion_V"
+
+generations:
+  - name: "International Edition"
+    start_year: 2024
+    end_year: null
+    description: "Second-generation Aion V, built on GAC's AEP 3.0 platform and designed as a global model. It debuted at the 2024 Beijing show and went on sale in China in July 2024 as the Aion V Bawanglong, then in markets including Indonesia, Singapore, Thailand, Europe and Australia. Battery options span 62 to 90 kWh, with a 75.3 kWh pack in several export markets, and a single front motor of 100 to 165 kW."
+    wikipedia_section: "Second generation (2024)"
