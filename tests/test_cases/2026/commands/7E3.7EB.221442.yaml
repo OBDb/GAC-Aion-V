@@ -1,0 +1,11 @@
+command_id: 7E3.7EB.221442
+test_cases:
+- expected_values:
+    AIONV_VCU_PACK_V: 355
+  response: 7EB056214420DDE
+- expected_values:
+    AIONV_VCU_PACK_V: 358
+  response: 7EB056214420DFC
+- expected_values:
+    AIONV_VCU_PACK_V: 359
+  response: 7EB056214420E06

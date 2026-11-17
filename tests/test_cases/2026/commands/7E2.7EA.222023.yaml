@@ -1,0 +1,11 @@
+command_id: 7E2.7EA.222023
+test_cases:
+- expected_values:
+    AIONV_CELL_AVG_MV: 3160
+  response: 7EA056220231FE0
+- expected_values:
+    AIONV_CELL_AVG_MV: 3191
+  response: 7EA056220231FFF
+- expected_values:
+    AIONV_CELL_AVG_MV: 3192
+  response: 7EA056220232000

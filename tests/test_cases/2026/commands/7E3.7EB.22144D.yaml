@@ -1,0 +1,8 @@
+command_id: 7E3.7EB.22144D
+test_cases:
+- expected_values:
+    AIONV_MOTOR_TEMP_1: 25
+  response: 7EB0562144D0041
+- expected_values:
+    AIONV_MOTOR_TEMP_1: 62
+  response: 7EB0562144D0066

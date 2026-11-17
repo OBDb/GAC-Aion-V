@@ -1,0 +1,11 @@
+command_id: 7E2.7EA.221105
+test_cases:
+- expected_values:
+    AIONV_PACK_V_COPY: 1.4
+  response: 7EA05621105000E
+- expected_values:
+    AIONV_PACK_V_COPY: 358.3
+  response: 7EA056211050DFF
+- expected_values:
+    AIONV_PACK_V_COPY: 358.5
+  response: 7EA056211050E01

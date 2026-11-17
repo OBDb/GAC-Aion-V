@@ -1,0 +1,8 @@
+command_id: 7E4.7EC.221104
+test_cases:
+- expected_values:
+    AIONV_MOTOR_TEMP_COPY: 20
+  response: 7EC046211043C
+- expected_values:
+    AIONV_MOTOR_TEMP_COPY: 70
+  response: 7EC046211046E

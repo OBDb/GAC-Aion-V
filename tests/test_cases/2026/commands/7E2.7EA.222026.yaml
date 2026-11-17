@@ -1,0 +1,29 @@
+command_id: 7E2.7EA.222026
+test_cases:
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 21
+  response: 7EA046220263D
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 22
+  response: 7EA046220263E
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 23
+  response: 7EA046220263F
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 24
+  response: 7EA0462202640
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 25
+  response: 7EA0462202641
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 26
+  response: 7EA0462202642
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 27
+  response: 7EA0462202643
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 28
+  response: 7EA0462202644
+- expected_values:
+    AIONV_BAT_TEMP_MIN: 29
+  response: 7EA0462202645

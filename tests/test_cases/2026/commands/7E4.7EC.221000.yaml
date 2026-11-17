@@ -1,0 +1,11 @@
+command_id: 7E4.7EC.221000
+test_cases:
+- expected_values:
+    AIONV_MOTOR_SUPPLY_V: 12.5
+  response: 7EC046210007D
+- expected_values:
+    AIONV_MOTOR_SUPPLY_V: 13.4
+  response: 7EC0462100086
+- expected_values:
+    AIONV_MOTOR_SUPPLY_V: 14.4
+  response: 7EC0462100090

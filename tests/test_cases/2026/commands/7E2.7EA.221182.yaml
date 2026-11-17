@@ -1,0 +1,8 @@
+command_id: 7E2.7EA.221182
+test_cases:
+- expected_values:
+    AIONV_CONTROLLER_TEMP_MIN: 22
+  response: 7EA046211823E
+- expected_values:
+    AIONV_CONTROLLER_TEMP_MIN: 48
+  response: 7EA0462118258

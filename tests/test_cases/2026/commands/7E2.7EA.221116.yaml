@@ -1,0 +1,32 @@
+command_id: 7E2.7EA.221116
+test_cases:
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 0
+  response: 7EA0462111600
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 2
+  response: 7EA0462111602
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 3
+  response: 7EA0462111603
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 5
+  response: 7EA0462111605
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 7
+  response: 7EA0462111607
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 8
+  response: 7EA0462111608
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 15
+  response: 7EA046211160F
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 18
+  response: 7EA0462111612
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 21
+  response: 7EA0462111615
+- expected_values:
+    AIONV_TEMP_MIN_INDEX: 23
+  response: 7EA0462111617

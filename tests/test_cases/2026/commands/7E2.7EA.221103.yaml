@@ -1,0 +1,8 @@
+command_id: 7E2.7EA.221103
+test_cases:
+- expected_values:
+    AIONV_CELL_MIN_INDEX: 0
+  response: 7EA0462110300
+- expected_values:
+    AIONV_CELL_MIN_INDEX: 97
+  response: 7EA0462110361

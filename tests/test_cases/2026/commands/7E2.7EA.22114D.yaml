@@ -1,0 +1,14 @@
+command_id: 7E2.7EA.22114D
+test_cases:
+- expected_values:
+    AIONV_ENERGY_IN: 9565.4
+  response: 7EA0662114D0175A6
+- expected_values:
+    AIONV_ENERGY_IN: 9676.1
+  response: 7EA0662114D0179F9
+- expected_values:
+    AIONV_ENERGY_IN: 9676.9
+  response: 7EA0662114D017A01
+- expected_values:
+    AIONV_ENERGY_IN: 9754.5
+  response: 7EA0662114D017D09

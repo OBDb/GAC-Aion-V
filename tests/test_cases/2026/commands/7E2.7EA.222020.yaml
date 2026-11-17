@@ -1,0 +1,11 @@
+command_id: 7E2.7EA.222020
+test_cases:
+- expected_values:
+    AIONV_CELL_MAX_MV: 3164
+  response: 7EA056220201FE4
+- expected_values:
+    AIONV_CELL_MAX_MV: 3191
+  response: 7EA056220201FFF
+- expected_values:
+    AIONV_CELL_MAX_MV: 3194
+  response: 7EA056220202002

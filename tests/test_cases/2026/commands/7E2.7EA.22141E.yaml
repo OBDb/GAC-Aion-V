@@ -1,0 +1,8 @@
+command_id: 7E2.7EA.22141E
+test_cases:
+- expected_values:
+    AIONV_SOC_COPY: 13
+  response: 7EA0562141E000D
+- expected_values:
+    AIONV_SOC_COPY: 100
+  response: 7EA0562141E0064

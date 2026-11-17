@@ -1,0 +1,17 @@
+command_id: 7E2.7EA.221115
+test_cases:
+- expected_values:
+    AIONV_TEMP_MAX_INDEX: 5
+  response: 7EA0462111505
+- expected_values:
+    AIONV_TEMP_MAX_INDEX: 12
+  response: 7EA046211150C
+- expected_values:
+    AIONV_TEMP_MAX_INDEX: 13
+  response: 7EA046211150D
+- expected_values:
+    AIONV_TEMP_MAX_INDEX: 14
+  response: 7EA046211150E
+- expected_values:
+    AIONV_TEMP_MAX_INDEX: 18
+  response: 7EA0462111512

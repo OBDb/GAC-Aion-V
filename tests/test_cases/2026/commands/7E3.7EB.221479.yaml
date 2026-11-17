@@ -1,0 +1,11 @@
+command_id: 7E3.7EB.221479
+test_cases:
+- expected_values:
+    AIONV_WHEEL_SPEED_3: 0
+  response: 7EB056214790000
+- expected_values:
+    AIONV_WHEEL_SPEED_3: 5.115
+  response: 7EB0562147903FF
+- expected_values:
+    AIONV_WHEEL_SPEED_3: 93.375
+  response: 7EB0562147948F3

@@ -1,0 +1,8 @@
+command_id: 7E2.7EA.221181
+test_cases:
+- expected_values:
+    AIONV_CONTROLLER_TEMP_MAX: 23
+  response: 7EA046211813F
+- expected_values:
+    AIONV_CONTROLLER_TEMP_MAX: 53
+  response: 7EA046211815D

@@ -1,0 +1,32 @@
+command_id: 7E2.7EA.221114
+test_cases:
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 61
+  response: 7EA046211143D
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 62
+  response: 7EA046211143E
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 63
+  response: 7EA046211143F
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 64
+  response: 7EA0462111440
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 65
+  response: 7EA0462111441
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 66
+  response: 7EA0462111442
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 67
+  response: 7EA0462111443
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 68
+  response: 7EA0462111444
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 69
+  response: 7EA0462111445
+- expected_values:
+    AIONV_CELL_CHARGE_AVG: 70
+  response: 7EA0462111446

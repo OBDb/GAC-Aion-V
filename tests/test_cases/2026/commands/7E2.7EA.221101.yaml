@@ -1,0 +1,8 @@
+command_id: 7E2.7EA.221101
+test_cases:
+- expected_values:
+    AIONV_CELL_MAX_INDEX: 0
+  response: 7EA0462110100
+- expected_values:
+    AIONV_CELL_MAX_INDEX: 111
+  response: 7EA046211016F

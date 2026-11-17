@@ -1,0 +1,8 @@
+command_id: 7E2.7EA.221183
+test_cases:
+- expected_values:
+    AIONV_CONTROLLER_TEMP_AVG: 22
+  response: 7EA046211833E
+- expected_values:
+    AIONV_CONTROLLER_TEMP_AVG: 50
+  response: 7EA046211835A

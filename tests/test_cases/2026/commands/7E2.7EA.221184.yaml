@@ -1,0 +1,17 @@
+command_id: 7E2.7EA.221184
+test_cases:
+- expected_values:
+    AIONV_CONTROLLER_MAX_INDEX: 0
+  response: 7EA0462118400
+- expected_values:
+    AIONV_CONTROLLER_MAX_INDEX: 3
+  response: 7EA0462118403
+- expected_values:
+    AIONV_CONTROLLER_MAX_INDEX: 8
+  response: 7EA0462118408
+- expected_values:
+    AIONV_CONTROLLER_MAX_INDEX: 11
+  response: 7EA046211840B
+- expected_values:
+    AIONV_CONTROLLER_MAX_INDEX: 13
+  response: 7EA046211840D

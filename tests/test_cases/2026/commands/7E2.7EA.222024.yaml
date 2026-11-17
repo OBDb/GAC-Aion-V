@@ -1,0 +1,8 @@
+command_id: 7E2.7EA.222024
+test_cases:
+- expected_values:
+    AIONV_BAT_TEMP_MAX: 22
+  response: 7EA046220243E
+- expected_values:
+    AIONV_BAT_TEMP_MAX: 31
+  response: 7EA0462202447

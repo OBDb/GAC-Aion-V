@@ -1,0 +1,11 @@
+command_id: 7E2.7EA.221106
+test_cases:
+- expected_values:
+    AIONV_CELL_SUM_V: 354
+  response: 7EA056211060DD4
+- expected_values:
+    AIONV_CELL_SUM_V: 358.2
+  response: 7EA056211060DFE
+- expected_values:
+    AIONV_CELL_SUM_V: 358.5
+  response: 7EA056211060E01

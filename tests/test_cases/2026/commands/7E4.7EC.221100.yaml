@@ -1,0 +1,11 @@
+command_id: 7E4.7EC.221100
+test_cases:
+- expected_values:
+    AIONV_INVERTER_V: 12
+  response: 7EC05621100000C
+- expected_values:
+    AIONV_INVERTER_V: 352
+  response: 7EC056211000160
+- expected_values:
+    AIONV_INVERTER_V: 377
+  response: 7EC056211000179

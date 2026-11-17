@@ -1,0 +1,5 @@
+command_id: 7E2.7EA.221136
+test_cases:
+- expected_values:
+    AIONV_CC2_V: 11.9
+  response: 7EA0462113677

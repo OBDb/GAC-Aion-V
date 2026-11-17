@@ -1,0 +1,8 @@
+command_id: 7E3.7EB.221000
+test_cases:
+- expected_values:
+    AIONV_VCU_SUPPLY_V: 12.4
+  response: 7EB046210007C
+- expected_values:
+    AIONV_VCU_SUPPLY_V: 14.3
+  response: 7EB046210008F

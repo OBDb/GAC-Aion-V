@@ -1,0 +1,5 @@
+command_id: 7E2.7EA.22111E
+test_cases:
+- expected_values:
+    AIONV_SOH: 93
+  response: 7EA0562111E005D
