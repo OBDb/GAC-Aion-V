@@ -4,8 +4,8 @@ test_cases:
     AIONV_CELL_MIN_MV: 3154
   response: 7EA056220221FDA
 - expected_values:
-    AIONV_CELL_MIN_MV: 3187
-  response: 7EA056220221FFB
+    AIONV_CELL_MIN_MV: 3189
+  response: 7EA056220221FFD
 - expected_values:
-    AIONV_CELL_MIN_MV: 3195
-  response: 7EA056220222003
+    AIONV_CELL_MIN_MV: 3192
+  response: 7EA056220222000

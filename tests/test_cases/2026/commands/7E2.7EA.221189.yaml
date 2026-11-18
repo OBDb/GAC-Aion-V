@@ -10,5 +10,5 @@ test_cases:
     AIONV_ENERGY_OUT: 8934.4
   response: 7EA06621189015D00
 - expected_values:
-    AIONV_ENERGY_OUT: 9011.3
-  response: 7EA06621189016001
+    AIONV_ENERGY_OUT: 9040.6
+  response: 7EA06621189016126

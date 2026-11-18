@@ -7,5 +7,5 @@ test_cases:
     AIONV_PACK_V_COPY: 358.3
   response: 7EA056211050DFF
 - expected_values:
-    AIONV_PACK_V_COPY: 358.5
-  response: 7EA056211050E01
+    AIONV_PACK_V_COPY: 358.4
+  response: 7EA056211050E00
